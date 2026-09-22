@@ -87,6 +87,7 @@ impl ProviderId {
     pub const META: ProviderId = ProviderId(Cow::Borrowed("meta"));
     pub const KIMI_CODING: ProviderId = ProviderId(Cow::Borrowed("kimi_coding"));
     pub const MOONSHOT: ProviderId = ProviderId(Cow::Borrowed("moonshot"));
+    pub const ALIBABA_TOKEN_PLAN: ProviderId = ProviderId(Cow::Borrowed("alibaba_token_plan"));
 
     /// Returns all built-in provider IDs
     ///
@@ -133,6 +134,7 @@ impl ProviderId {
             ProviderId::META,
             ProviderId::KIMI_CODING,
             ProviderId::MOONSHOT,
+            ProviderId::ALIBABA_TOKEN_PLAN,
         ]
     }
 
@@ -232,6 +234,7 @@ impl std::str::FromStr for ProviderId {
             "meta" => ProviderId::META,
             "kimi_coding" => ProviderId::KIMI_CODING,
             "moonshot" => ProviderId::MOONSHOT,
+            "alibaba_token_plan" => ProviderId::ALIBABA_TOKEN_PLAN,
             // For custom providers, use Cow::Owned to avoid memory leaks
             custom => ProviderId(Cow::Owned(custom.to_string())),
         };
@@ -817,6 +820,26 @@ mod tests {
     }
 
     #[test]
+    fn test_alibaba_token_plan_display_name() {
+        let actual = ProviderId::ALIBABA_TOKEN_PLAN.to_string();
+        let expected = "AlibabaTokenPlan".to_string();
+        assert_eq!(actual, expected);
+    }
+
+    #[test]
+    fn test_alibaba_token_plan_in_built_in_providers() {
+        let built_in = ProviderId::built_in_providers();
+        assert!(built_in.contains(&ProviderId::ALIBABA_TOKEN_PLAN));
+    }
+
+    #[test]
+    fn test_alibaba_token_plan_from_str_roundtrip() {
+        let actual = ProviderId::from_str("alibaba_token_plan").unwrap();
+        let expected = ProviderId::ALIBABA_TOKEN_PLAN;
+        assert_eq!(actual, expected);
+    }
+
+    #[test]
     fn test_io_intelligence() {
         let fixture = "test_key";
         let actual = io_intelligence(fixture);
@@ -951,7 +974,8 @@ mod tests {
     fn test_azure_provider() {
         let fixture = azure("test_key", "my-resource", "gpt-4", "2024-02-15-preview");
 
-        // Check chat completion URL (url field now contains the chat completion URL)
+        // Check chat completion URL (url field now contains the chat completion
+        // URL)
         let actual_chat = fixture.url.clone();
         let expected_chat = Url::parse("https://my-resource.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2024-02-15-preview").unwrap();
         assert_eq!(actual_chat, expected_chat);
