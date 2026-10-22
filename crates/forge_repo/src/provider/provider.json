@@ -137,27 +137,9 @@
         "input_modalities": ["text", "image"]
       },
       {
-        "id": "gpt-4.1-2025-04-14",
-        "name": "GPT-4.1 (2025-04-14)",
-        "description": "GPT-4.1 model snapshot from April 2025",
-        "context_length": 128000,
-        "tools_supported": true,
-        "supports_parallel_tool_calls": true,
-        "input_modalities": ["text", "image"]
-      },
-      {
         "id": "gpt-4.1-mini",
         "name": "GPT-4.1 Mini",
         "description": "Compact version of GPT-4.1",
-        "context_length": 128000,
-        "tools_supported": true,
-        "supports_parallel_tool_calls": true,
-        "input_modalities": ["text", "image"]
-      },
-      {
-        "id": "gpt-4.1-mini-2025-04-14",
-        "name": "GPT-4.1 Mini (2025-04-14)",
-        "description": "GPT-4.1 Mini model snapshot from April 2025",
         "context_length": 128000,
         "tools_supported": true,
         "supports_parallel_tool_calls": true,
@@ -173,36 +155,9 @@
         "input_modalities": ["text", "image"]
       },
       {
-        "id": "gpt-4o-2024-11-20",
-        "name": "GPT-4o (2024-11-20)",
-        "description": "GPT-4o model snapshot from November 2024",
-        "context_length": 128000,
-        "tools_supported": true,
-        "supports_parallel_tool_calls": true,
-        "input_modalities": ["text", "image"]
-      },
-      {
-        "id": "gpt-4o-2024-08-06",
-        "name": "GPT-4o (2024-08-06)",
-        "description": "GPT-4o model snapshot from August 2024",
-        "context_length": 128000,
-        "tools_supported": true,
-        "supports_parallel_tool_calls": true,
-        "input_modalities": ["text", "image"]
-      },
-      {
         "id": "gpt-4o-mini",
         "name": "GPT-4o Mini",
         "description": "Fast and affordable small multimodal model",
-        "context_length": 128000,
-        "tools_supported": true,
-        "supports_parallel_tool_calls": true,
-        "input_modalities": ["text", "image"]
-      },
-      {
-        "id": "gpt-4o-mini-2024-07-18",
-        "name": "GPT-4o Mini (2024-07-18)",
-        "description": "GPT-4o Mini model snapshot from July 2024",
         "context_length": 128000,
         "tools_supported": true,
         "supports_parallel_tool_calls": true,
